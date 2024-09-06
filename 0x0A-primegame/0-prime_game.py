@@ -44,7 +44,7 @@ def findPrimes(n):
 
 def isWinner(x, nums):
     """
-    Mwende and Martin are playing a game.Given a set of consecutive integers
+    Maria and Ben are playing a game.Given a set of consecutive integers
     starting from 1 up to and including n, they take turns choosing a
     prime number from the set and removing that number and its
     multiples from the set.
@@ -54,7 +54,7 @@ def isWinner(x, nums):
     Assuming Maria always goes first and both players play optimally,
     determine who the winner of each game is.
     """
-    players = {'Mwende': 0, 'Martin': 0}
+    players = {'Maria': 0, 'Ben': 0}
     cluster = set()
     for elem in range(x):
         nums.sort()
@@ -66,13 +66,13 @@ def isWinner(x, nums):
         temp = findPrimes(cluster)
 
         if temp % 2 == 0:
-            players['Martin'] += 1
+            players['Ben'] += 1
         elif temp % 2 != 0:
-            players['Mwende'] += 1
+            players['Maria'] += 1
 
-    if players['Mwende'] > players['Martin']:
-        return 'Mwende'
-    elif players['Mwende'] < players['Martin']:
-        return 'Martin'
+    if players['Maria'] > players['Ben']:
+        return 'Maria'
+    elif players['Maria'] < players['Ben']:
+        return 'Ben'
     else:
         return None
